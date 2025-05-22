@@ -331,3 +331,32 @@ canvas {
     margin: 10px;
     z-index: 1002; /* Ensure the webcam container is above other elements */
 }
+
+.nav-links {
+    margin-top: 10px !important;
+    position: relative;
+    z-index: 9999;
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 20px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links li a:hover {
+    background-color: white;
+    color: black;
+}
