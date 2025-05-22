@@ -323,14 +323,13 @@ canvas {
 }
 
 #webcam-container {
-    position: absolute;
-    top: 100%;
-    right: 20px;
-    transform: translateY(10px);
+    position: relative;
     border-radius: 10px;
-    margin: 10px;
     border: 2px solid white;
     z-index: 100;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
 }
 
 .nav-links {
@@ -339,12 +338,14 @@ canvas {
     z-index: 9999;
     list-style: none;
     display: flex;
+    pointer-events: auto;
 }
 
 .nav-links li {
     margin-left: 20px;
     position: relative;
     z-index: 9999;
+    pointer-events: auto;
 }
 
 .nav-links li a {
@@ -359,6 +360,7 @@ canvas {
     transition: background-color 0.3s, color 0.3s;
     position: relative;
     z-index: 9999;
+    pointer-events: auto;
 }
 
 .nav-links li a:hover {

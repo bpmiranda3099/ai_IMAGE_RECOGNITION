@@ -128,6 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(modelId).style.display = 'block';
         });
     });
+
+    // Ensure portfolio button is clickable
+    const portfolioButton = document.querySelector('.nav-links a');
+    if (portfolioButton) {
+        portfolioButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://bpmiranda3099.github.io/', '_blank');
+        });
+        
+        // Make sure it's styled to indicate it's clickable
+        portfolioButton.style.cursor = 'pointer';
+        portfolioButton.title = 'Click to open portfolio';
+    }
 });
 
 window.addEventListener('load', () => {
@@ -226,5 +239,9 @@ VANTA.NET({
     scale: 1.00,
     scaleMobile: 1.00,
     color: 0xffffff,
-    backgroundColor: 0x000000
+    backgroundColor: 0x000000,
+    points: 8.00,  // Reduce number of points for better performance
+    maxDistance: 20.00,  // Reduce max distance
+    spacing: 10.00,  // Increase spacing
+    backgroundAlpha: 0.10  // Make background more transparent
 });
