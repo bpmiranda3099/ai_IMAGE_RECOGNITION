@@ -324,12 +324,13 @@ canvas {
 
 #webcam-container {
     position: absolute;
-    top: 60%;
+    top: 100%;
     right: 20px;
-    transform: translateY(-50%);
+    transform: translateY(10px);
     border-radius: 10px;
     margin: 10px;
-    z-index: 1002; /* Ensure the webcam container is above other elements */
+    border: 2px solid white;
+    z-index: 100;
 }
 
 .nav-links {
@@ -342,6 +343,8 @@ canvas {
 
 .nav-links li {
     margin-left: 20px;
+    position: relative;
+    z-index: 9999;
 }
 
 .nav-links li a {
@@ -354,6 +357,8 @@ canvas {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    position: relative;
+    z-index: 9999;
 }
 
 .nav-links li a:hover {
