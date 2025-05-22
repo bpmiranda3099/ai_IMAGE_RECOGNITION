@@ -23,17 +23,9 @@
         }
     </style>
 </head>
-<body onload="requestCameraPermission()">    <header class="header">
-        <div class="container">            <div class="navbar">                <div class="title" style="flex: 1; text-align: left;">ai &nbsp;/ &nbsp;/ &nbsp;/ &nbsp;IMAGE RECOGNITION</div>                
-                <div style="display: flex; align-items: center; position: relative;">
-                    <ul class="nav-links" style="position: fixed; top: 15px; right: 15px;">
-                        <li><a href="https://bpmiranda3099.github.io/" onclick="window.open(this.href, '_blank'); return false;" style="z-index: 100000;">Portfolio</a></li>
-                    </ul>
-                    <div id="webcam-container" style="position: relative; border: 2px solid white; border-radius: 10px; margin-right: 15px;"></div>
-                </div>
+<body onload="requestCameraPermission()">    <header class="header">        <div class="container">            <div class="navbar">                <div class="title" style="flex: 1; text-align: left;">ai &nbsp;/ &nbsp;/ &nbsp;/ &nbsp;IMAGE RECOGNITION</div>                
             </div>
-        </div>
-    </header>    <main id="mainContent" style="z-index: 1; pointer-events: auto;">
+        </div></header>    <main id="mainContent" style="z-index: 1; pointer-events: auto;">
         <div class="container">
                 <div id="label-container"></div>
                 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
@@ -129,15 +121,14 @@
                             console.error("Camera permission denied", error);
                         }
                     }
-                </script>
-
-            <div class="row">
+                </script>            <div class="row">
                 <div class="model-container">
                     <div class="model-wrapper" id="model1" style="display: none;"></div>
                     <div class="model-wrapper" id="model2" style="display: none;"></div>
                     <div class="model-wrapper" id="model3" style="display: none;"></div>
                     <div class="model-wrapper" id="model4" style="display: none;"></div>
                     <div class="model-wrapper" id="model5" style="display: none;"></div>
+                    <div id="webcam-container" style="position: absolute; border: 2px solid white; border-radius: 10px; top: 50%; right: 30px; transform: translateY(-50%); z-index: 1000;"></div>
                 </div>
             </div>            <div class="row">
                 <div class="loading-bar-container" id="loadingBarContainer">
@@ -184,13 +175,30 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.21/vanta.net.min.js"></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script src="scripts.js"></script>
-    
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>    <script src="scripts.js"></script>
+    <script>
+        // Make sure the portfolio button is clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            const portfolioButtonLayer = document.getElementById('portfolio-button-layer');
+            const portfolioButton = portfolioButtonLayer.querySelector('button');
+            
+            // Force the portfolio button to be clickable
+            portfolioButtonLayer.style.zIndex = '99999999';
+            portfolioButtonLayer.style.pointerEvents = 'auto !important';
+            portfolioButton.style.zIndex = '99999999';
+            portfolioButton.style.pointerEvents = 'auto !important';
+            
+            // Add event listeners to ensure the button works
+            portfolioButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                window.open('https://bpmiranda3099.github.io/', '_blank');
+            });
+        });
+    </script>
     <!-- Add an absolutely positioned layer for the portfolio button to ensure it's always clickable -->
-    <div id="portfolio-button-layer" style="position: fixed; top: 15px; right: 15px; z-index: 999999; pointer-events: auto;">
+    <div id="portfolio-button-layer" style="position: fixed; top: 15px; right: 15px; z-index: 99999999; pointer-events: auto !important;">
         <button onclick="window.open('https://bpmiranda3099.github.io/', '_blank');" 
-                style="background-color: black; color: white; border: 2px solid white; padding: 20px; font-size: 16px; cursor: pointer;">
+                style="background-color: black; color: white; border: 2px solid white; padding: 20px; font-size: 16px; cursor: pointer; position: relative; z-index: 99999999;">
             Portfolio
         </button>
     </div>
