@@ -356,11 +356,11 @@ canvas {
     border: 2px solid white;
     padding: 20px 20px;
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer !important;
     transition: background-color 0.3s, color 0.3s;
     position: relative;
     z-index: 9999;
-    pointer-events: auto;
+    pointer-events: auto !important;
 }
 
 .nav-links li a:hover {
