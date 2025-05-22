@@ -23,11 +23,10 @@
         }
     </style>
 </head>
-<body onload="requestCameraPermission()">    <header class="header">
-        <div class="container">            <div class="navbar">                <div class="title" style="flex: 1; text-align: left;">ai &nbsp;/ &nbsp;/ &nbsp;/ &nbsp;IMAGE RECOGNITION</div>
-                <div style="position: relative; z-index: 9999;">
+<body onload="requestCameraPermission()">    <header class="header">        <div class="container">            <div class="navbar">                <div class="title" style="flex: 1; text-align: left;">ai &nbsp;/ &nbsp;/ &nbsp;/ &nbsp;IMAGE RECOGNITION</div>
+                <div style="position: relative; z-index: 9999; pointer-events: auto;">
                     <ul class="nav-links">
-                        <li><a href="https://bpmiranda3099.github.io/">Portfolio</a></li>
+                        <li><a href="https://bpmiranda3099.github.io/" style="pointer-events: auto;">Portfolio</a></li>
                     </ul>
                 </div>
                 <div id="webcam-container"></div>
@@ -79,9 +78,7 @@
                         webcam.update(); // update the webcam frame
                         await predict();
                         window.requestAnimationFrame(loop);
-                    }
-
-                    // run the webcam image through the image model
+                    }                    // run the webcam image through the image model
                     async function predict() {
                         // predict can take in an image, video or canvas html element
                         const prediction = await model.predict(webcam.canvas);
@@ -95,7 +92,16 @@
 
                             // Update the loading bar
                             const loadingBar = document.querySelector(`.loading-bar[data-model="model${i + 1}"]`);
-                            loadingBar.style.width = `${prediction[i].probability * 100}%`;
+                            const probability = prediction[i].probability * 100;
+                            loadingBar.style.width = `${probability}%`;
+                            
+                            // Add class name from prediction to label if it exists
+                            if (prediction[i].className) {
+                                const label = loadingBar.querySelector('.label');
+                                if (label) {
+                                    label.textContent = prediction[i].className;
+                                }
+                            }
 
                             // Check for the highest prediction
                             if (prediction[i].probability > highestProbability) {
@@ -133,14 +139,13 @@
                     <div class="model-wrapper" id="model4" style="display: none;"></div>
                     <div class="model-wrapper" id="model5" style="display: none;"></div>
                 </div>
-            </div>
-            <div class="row">
+            </div>            <div class="row">
                 <div class="loading-bar-container" id="loadingBarContainer">
-                    <div class="loading-bar" data-model="model1"></div>
-                    <div class="loading-bar" data-model="model2"></div>
-                    <div class="loading-bar" data-model="model3"></div>
-                    <div class="loading-bar" data-model="model4"></div>
-                    <div class="loading-bar" data-model="model5"></div>
+                    <div class="loading-bar" data-model="model1"><span class="label">Bottle</span></div>
+                    <div class="loading-bar" data-model="model2"><span class="label">Shoe</span></div>
+                    <div class="loading-bar" data-model="model3"><span class="label">Smartphone</span></div>
+                    <div class="loading-bar" data-model="model4"><span class="label">Watch</span></div>
+                    <div class="loading-bar" data-model="model5"><span class="label">Other</span></div>
                 </div>
             </div>
         </div>
