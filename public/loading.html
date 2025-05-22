@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="load-view" id="loadView">
+        <canvas id="loadingCanvas"></canvas>
+        <div class="loading-text" id="loadingText">Loading...</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            const loadView = document.getElementById('loadView');
+            let percentage = 0;
+            const interval = setInterval(() => {
+                percentage += 1;
+                document.getElementById('loadingText').textContent = percentage + '%';
+                if (percentage >= 100) {
+                    clearInterval(interval);
+                    window.location.href = 'index.html';
+                }
+            }, 30); // Adjust the delay as needed
+        });
+    </script>
+</body>
+</html>

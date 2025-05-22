@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+@keyframes flipIn {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    flex: 0 0 150px; /* Increase the height for the header */
+    position: relative; /* Ensure Vanta.js background effect is properly positioned */
+    z-index: 1; /* Ensure content is above the Vanta.js background */
+    height: 150px; /* Increase the fixed height for the header */
+    overflow: hidden; /* Ensure no content overflows the header */
+}
+
+main {
+    flex: 1;
+    position: relative; /* Ensure Vanta.js background effect is properly positioned */
+    z-index: 1; /* Ensure content is above the Vanta.js background */
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 1rem 0;
+    background-color: black;
+    color: white;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+}
+
+footer .social-media .social-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 15px;
+    filter: invert(1); /* Ensure icons are white */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add space between title and button */
+    padding: 10px;
+    background-color: black;
+    color: white;
+    animation: slideInLeft 1.5s ease-out 5s; /* Add 5s delay */
+    width: 100%;
+    height: auto; /* Ensure the navbar spans across the page horizontally */
+    position: fixed; /* Fix the navbar at the top */
+    top: 0; /* Position the navbar at the top */
+    left: 0; /* Align the navbar to the left edge */
+    right: 0; /* Align the navbar to the right edge */
+    z-index: 1000; /* Ensure the navbar is above other elements */
+}
+
+.navbar .title {
+    font-size: 100px;
+    font-weight: 900;
+    -webkit-text-stroke: 5px white; /* Adds a thick white stroke to the text */
+    text-align: left; /* Align title to the left */
+}
+
+.navbar .start-button {
+    position: absolute;
+    right: 10px; /* Align button to the far right */
+    margin: 10px; /* Add some margin for spacing */
+    text-align: right; /* Align text inside the button to the right */
+    font-size: 20px; /* Increase font size */
+    padding: 15px 30px; /* Increase padding for a bigger button */
+}
+
+.page-numbers {
+    text-align: right;
+    font-size: 2rem;
+    letter-spacing: 0.1in;
+    color: white;
+    position: relative; /* Ensure page numbers are above the Vanta.js effect */
+    z-index: 2; /* Ensure page numbers are above the Vanta.js effect */
+    animation: slideInRight 1.5s ease-out 5s; /* Add 5s delay */
+}
+
+.page-numbers span {
+    display: inline-block;
+    transition: transform 0.2s;
+    margin-bottom: 2rem; /* Add vertical spacing between page numbers */
+}
+
+.page-numbers span:hover {
+    transform: translateY(-5px);
+}
+
+.load-view {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+canvas {
+    display: block;
+}
+
+.loading-text {
+    position: absolute;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.flip-in {
+    animation: flipIn 1s ease-out 6s;
+}
+
+.loading-bar-container {
+    display: flex; /* Ensure the container uses flexbox */
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    position: fixed; /* Fix the position to ensure it's always visible */
+    top: 80%; /* Position the loading bar slightly lower */
+    left: 50%; /* Center the loading bar horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100%; /* Ensure the loading bar container takes full width */
+    z-index: 1001; /* Ensure the loading bar container is above other elements */
+}
+
+.loading-bar {
+    width: 200px; /* Increase width */
+    height: 40px; /* Increase height */
+    margin: 0 20px; /* Retain margin */
+    border: 2px solid white;
+    overflow: hidden;
+    position: relative; /* Ensure the loading bar is positioned relative */
+    transition: transform 0.3s, width 0.3s, height 0.3s;
+}
+
+.loading-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    transition: width 0.3s;
+}
+
+.loading-bar:hover {
+    transform: scale(1.3);
+}
+
+.loading-bar:hover::before {
+    width: 100%;
+}
+
+#carouselExampleIndicators .carousel-item {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    text-align: center;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+#carouselExampleIndicators .carousel-item.active {
+    display: flex;
+}
+
+#carouselExampleIndicators .carousel-item:hover {
+    transform: translateY(20px);
+}
+
+#carouselExampleIndicators .carousel-item h2 {
+    font-size: 3.5rem;
+    transition: all 0.5s ease;
+}
+
+#carouselExampleIndicators .carousel-item p, 
+#carouselExampleIndicators .carousel-item button {
+    font-size: 1.5rem;
+}
+
+.detailed-description {
+    display: none;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 30rem;
+}
+
+.minimalist-button {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 20px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.minimalist-button:hover {
+    background-color: white;
+    color: black;
+}
+
+#pageNumbers {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.model-wrapper {
+    display: flex; /* Use flexbox to center the model */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Ensure the model wrapper takes full width */
+    height: 100vh; /* Ensure the model wrapper takes full height */
+    position: absolute;
+    top: 0; /* Position the model wrapper at the top */
+    left: 50%; /* Center the model wrapper horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    z-index: 999; /* Ensure the model wrapper is above other elements but below the loading bar */
+}
+
+.model-container {
+    display: flex; /* Use flexbox to center the model */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Ensure the model container takes full width */
+    height: 100vh; /* Ensure the model container takes full height */
+    position: fixed; /* Fix the position to ensure it's always visible */
+    top: 45%; /* Position the model container slightly higher */
+    left: 50%; /* Center the model container horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    z-index: 999; /* Ensure the model container is above other elements but below the loading bar */
+}
+
+#mainContent {
+    position: relative; /* Ensure Vanta.js background effect is properly positioned */
+    z-index: 1; /* Ensure content is above the Vanta.js background */
+}
+
+#webcam-container {
+    position: absolute;
+    top: 60%;
+    right: 20px;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    margin: 10px;
+    z-index: 1002; /* Ensure the webcam container is above other elements */
+}

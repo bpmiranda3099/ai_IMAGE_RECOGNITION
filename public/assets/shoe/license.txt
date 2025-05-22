@@ -1,0 +1,11 @@
+Model Information:
+* title:	Zapatilla Asics Gel-Nimbus 23 (Low Poly)
+* source:	https://sketchfab.com/3d-models/zapatilla-asics-gel-nimbus-23-low-poly-1d4a1f38b12543b595566e3f410afab4
+* author:	Tomás Fernández Castillo (https://sketchfab.com/tfernndez)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Zapatilla Asics Gel-Nimbus 23 (Low Poly)" (https://sketchfab.com/3d-models/zapatilla-asics-gel-nimbus-23-low-poly-1d4a1f38b12543b595566e3f410afab4) by Tomás Fernández Castillo (https://sketchfab.com/tfernndez) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

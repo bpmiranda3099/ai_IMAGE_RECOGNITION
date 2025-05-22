@@ -1,0 +1,11 @@
+Model Information:
+* title:	Smartphone
+* source:	https://sketchfab.com/3d-models/smartphone-3ced56aa814d40ba987a01be9b672449
+* author:	7Dice (https://sketchfab.com/7Dice)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Smartphone" (https://sketchfab.com/3d-models/smartphone-3ced56aa814d40ba987a01be9b672449) by 7Dice (https://sketchfab.com/7Dice) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
