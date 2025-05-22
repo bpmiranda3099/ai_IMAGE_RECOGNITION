@@ -334,8 +334,8 @@ canvas {
 
 .nav-links {
     margin-top: 10px !important;
-    position: relative;
-    z-index: 9999;
+    position: absolute;
+    z-index: 10000;
     list-style: none;
     display: flex;
     pointer-events: auto;
@@ -344,7 +344,7 @@ canvas {
 .nav-links li {
     margin-left: 20px;
     position: relative;
-    z-index: 9999;
+    z-index: 10000;
     pointer-events: auto;
 }
 
@@ -358,9 +358,12 @@ canvas {
     font-size: 16px;
     cursor: pointer !important;
     transition: background-color 0.3s, color 0.3s;
-    position: relative;
-    z-index: 9999;
+    position: relative;    z-index: 10000;
     pointer-events: auto !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .nav-links li a:hover {

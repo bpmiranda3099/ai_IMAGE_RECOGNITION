@@ -132,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (portfolioButton) {
         portfolioButton.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
+            console.log('Portfolio button clicked');
             window.open('https://bpmiranda3099.github.io/', '_blank');
             return false;
         });
@@ -139,7 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Make sure it's styled to indicate it's clickable
         portfolioButton.style.cursor = 'pointer';
         portfolioButton.style.pointerEvents = 'auto';
+        portfolioButton.style.zIndex = '999999';
+        portfolioButton.style.position = 'relative';
         portfolioButton.title = 'Click to open portfolio';
+        
+        // For troubleshooting - highlight the clickable area
+        console.log('Portfolio button position:', portfolioButton.getBoundingClientRect());
     }
 });
 
